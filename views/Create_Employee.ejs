@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Employee</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: yellow;
+        }
+        .header .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .header .nav {
+            display: flex;
+            gap: 10px;
+        }
+        .header .nav a {
+            text-decoration: none;
+            color: black;
+        }
+        .header .user-info {
+            font-size: 0.9em;
+        }
+        .main-content {
+            padding: 20px;
+            border: 1px solid black;
+            margin: 20px;
+            background-color: white;
+        }
+        .main-content form .input-group {
+            margin-bottom: 10px;
+        }
+        .main-content form .input-group label {
+            display: block;
+        }
+        .main-content form .input-group input,
+        .main-content form .input-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+        }
+        .main-content form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Logo</div>
+        <div class="nav">
+            <a href="/">Home</a>
+            <a href="/employee-list">Employee List</a>
+        </div>
+        <div class="user-info"><a href="logout" role="button">Hukum Gupta - Logout</a>Logout</div>
+    </div>
+    <div class="main-content">
+        <h1>Create Employee</h1>
+        <form action="/create-employee" method="POST">
+            <div class="input-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="mobileNo">Mobile No:</label>
+                <input type="text" id="mobileNo" name="mobileNo" required>
+            </div>
+            <div class="input-group">
+                <label for="designation">Designation:</label>
+                <select id="designation" name="designation">
+                    <option value="HR">HR</option>
+                    <option value="Manager">Manager</option>
+                    <option value="Sales">Sales</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Gender:</label>
+                <input type="radio" id="male" name="gender" value="M">
+                <label for="male">M</label>
+                <input type="radio" id="female" name="gender" value="F">
+                <label for="female">F</label>
+            </div>
+            <div class="input-group">
+                <label>Course:</label>
+                <input type="checkbox" id="mca" name="course" value="MCA">
+                <label for="mca">MCA</label>
+                <input type="checkbox" id="bca" name="course" value="BCA">
+                <label for="bca">BCA</label>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

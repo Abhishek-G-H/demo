@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dash Board</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: yellow;
+        }
+        .header .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .header .nav {
+            display: flex;
+            gap: 10px;
+        }
+        .header .nav a {
+            text-decoration: none;
+            color: black;
+        }
+        .header .user-info {
+            font-size: 0.9em;
+        }
+        .main-content {
+            padding: 20px;
+            border: 1px solid black;
+            margin: 20px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Logo</div>
+        <div class="nav">
+            <a href="/createEmployee" role="button">Add an Employee</a>
+            <a href="/employee-list" role="buttom">Employee List</a>
+        </div>
+        <div class="user-info"><a href="logout" role="button">Hukum Gupta - Logout</a></div>
+    </div>
+    <div class="main-content">
+        <h1>DashBord</h1>
+        <p>Welcome Admin Panel</p>
+    </div>
+</body>
+</html>

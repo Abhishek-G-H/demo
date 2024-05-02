@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee List</title>
+    <!-- Include your CSS and JS files here -->
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Logo</div>
+        <div class="nav">
+            <a href="/">Home</a>
+            <a href="/employee-list">Employee List</a>
+        </div>
+        <div class="user-info"><a href="logout" role="button">Hukum Gupta - Logout</a></div>
+    </div>
+    <div class="main-content">
+        <h1>Employee List</h1>
+        <!-- Search Filter -->
+        <input type="text" id="search" placeholder="Search...">
+        <!-- Employee Table -->
+        <table id="employeeTable">
+            <thead>
+                <tr>
+                    <th>Unique ID</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile No</th>
+                    <th>Designation</th>
+                    <th>Gender</th>
+                    <th>Course</th>
+                    <th>Create Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% employees.forEach(employee => { %>
+                    <tr>
+                        <td><%= employee._id %></td>
+                        <td><img src="<%= employee.image %>" alt="Employee Image"></td>
+                        <td><%= employee.name %></td>
+                        <td><%= employee.email %></td>
+                        <td><%= employee.mobileNo %></td>
+                        <td><%= employee.designation %></td>
+                        <td><%= employee.gender %></td>
+                        <td><%= employee.course %></td>
+                        <td><%= employee.createDate %></td>
+                        <td>
+                            <button class="edit-btn"><a href="/employee_edit" role="button">Edit</a></button>
+                            <button class="delete-btn">Delete</button>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <!-- Pagination -->
+        <div id="pagination"></div>
+    </div>
+    <!-- Include your JS for sorting, filtering, paging, editing, and deleting here -->
+    <script src="/path/to/your/js"></script>
+</body>
+</html>
