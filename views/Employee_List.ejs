@@ -4,16 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee List</title>
-    <!-- Include your CSS and JS files here -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #ff0;
+        }
+        .header .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+        .header .nav {
+            display: flex;
+            gap: 10px;
+        }
+        .header .nav a {
+            text-decoration: none;
+            color: #000;
+        }
+        .header .user-info {
+            font-size: .9em;
+        }
+        .main-content {
+            padding: 20px;
+            border: 1px solid #000;
+            margin: 20px;
+            background-color: #fff;
+        }
+        .main-content form .input-group {
+            margin-bottom: 10px;
+        }
+        .main-content form .input-group label {
+            display: block;
+        }
+        .main-content form .input-group input,
+        .main-content form .input-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .main-content form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>        
 </head>
 <body>
     <div class="header">
         <div class="logo">Logo</div>
         <div class="nav">
-            <a href="/">Home</a>
+            <a href="/createEmployee">Add an Employee</a>
             <a href="/employee-list">Employee List</a>
         </div>
-        <div class="user-info"><a href="logout" role="button">Hukum Gupta - Logout</a></div>
+        <div class="user-info"><a href="/logout" role="button">Hukum Gupta - Logout</a></div>
     </div>
     <div class="main-content">
         <h1>Employee List</h1>
@@ -39,7 +96,7 @@
                 <% employees.forEach(employee => { %>
                     <tr>
                         <td><%= employee._id %></td>
-                        <td><img src="<%= employee.image %>" alt="Employee Image"></td>
+                        <td><img src="<%= employee.imageUpload %>" alt="Employee Image"></td>
                         <td><%= employee.name %></td>
                         <td><%= employee.email %></td>
                         <td><%= employee.mobileNo %></td>
@@ -48,8 +105,8 @@
                         <td><%= employee.course %></td>
                         <td><%= employee.createDate %></td>
                         <td>
-                            <button class="edit-btn"><a href="/employee_edit" role="button">Edit</a></button>
-                            <button class="delete-btn">Delete</button>
+                            <button class="edit-btn"><a href="/employee_edit/<%= employee._id %>" role="button">Edit</a></button>
+                            <button class="delete-btn"><a href="/employee_delete/<%= employee._id %>" role="button">Delete</a></button>
                         </td>
                     </tr>
                 <% }); %>

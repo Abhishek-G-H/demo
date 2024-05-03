@@ -4,7 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Edit</title>
-    <!-- Include your CSS and JS files here -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: yellow;
+        }
+        .header .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .header .nav {
+            display: flex;
+            gap: 10px;
+        }
+        .header .nav a {
+            text-decoration: none;
+            color: black;
+        }
+        .header .user-info {
+            font-size: 0.9em;
+        }
+        .main-content {
+            padding: 20px;
+            border: 1px solid black;
+            margin: 20px;
+            background-color: white;
+        }
+        .main-content form .input-group {
+            margin-bottom: 10px;
+        }
+        .main-content form .input-group label {
+            display: block;
+        }
+        .main-content form .input-group input,
+        .main-content form .input-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+        }
+        .main-content form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
@@ -17,41 +74,45 @@
     </div>
     <div class="main-content">
         <h1>Employee Edit</h1>
-        <form action="/update-employee" method="POST">
+        <form action="/update-employee/<%= employee._id %>" method="POST">
             <div class="input-group">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" value="<%= employee.name %>" required>
             </div>
             <div class="input-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" value="<%= employee.email %>" required>
             </div>
             <div class="input-group">
                 <label for="mobileNo">Mobile No:</label>
-                <input type="text" id="mobileNo" name="mobileNo" required>
+                <input type="text" id="mobileNo" name="mobileNo" value="<%= employee.mobileNo %>" required>
             </div>
             <div class="input-group">
                 <label for="designation">Designation:</label>
-                <select id="designation" name="designation">
+                <select id="designation" name="designation" value="<%= employee.designation %>">
                     <option value="HR">HR</option>
                     <option value="Manager">Manager</option>
                     <option value="Sales">Sales</option>
                 </select>
             </div>
             <div class="input-group">
-                <label>Gender:</label>
-                <input type="radio" id="male" name="gender" value="M">
-                <label for="male">M</label>
-                <input type="radio" id="female" name="gender" value="F">
-                <label for="female">F</label>
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" value="<%= employee.gender %>">
+                    <option value="M">M</option>
+                    <option value="F">F</option>
+                </select>
             </div>
             <div class="input-group">
-                <label>Course:</label>
-                <input type="checkbox" id="mca" name="course" value="MCA">
-                <label for="mca">MCA</label>
-                <input type="checkbox" id="bca" name="course" value="BCA">
-                <label for="bca">BCA</label>
+                <label for="course">Course:</label>
+                <select id="course" name="course" value="<%= employee.course %>">
+                    <option value="MCA">MCA</option>
+                    <option value="BCA">BCA</option>
+                </select>
             </div>
+            <div class="input-group">
+                <label for="imageUpload">Image Upload:</label>
+                <input type="file" id="imageUpload" name="imageUpload" value="<%= employee.imageUpload %>" >
+            </div>   
             <button type="submit">Update</button>
         </form>
     </div>

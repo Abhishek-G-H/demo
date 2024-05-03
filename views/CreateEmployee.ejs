@@ -74,7 +74,7 @@
     </div>
     <div class="main-content">
         <h1>Create Employee</h1>
-        <form action="/create-employee" method="POST">
+        <form action="/addEmployee" method="POST" enctype="multipart/form-data">
             <div class="input-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
@@ -109,6 +109,10 @@
                 <input type="checkbox" id="bca" name="course" value="BCA">
                 <label for="bca">BCA</label>
             </div>
+            <div class="input-group">
+                <label for="imageUpload">Image Upload:</label>
+                <input type="file" id="imageUpload" name="imageUpload" >
+            </div>            
             <button type="submit">Submit</button>
         </form>
     </div>
